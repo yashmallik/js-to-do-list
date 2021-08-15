@@ -9,6 +9,7 @@ input.focus()
 function addList(e){
     e.preventDefault();
     showList(input.value)
+    localStorage.setItem("data", input.value)
     dbArray.push(input.value)
     input.value=""
     input.focus()  
@@ -21,12 +22,11 @@ function showList(x){
      </li>`);
 
 }
-// function getdata(){
-//     localStorage.setItem("data", dbArray)
-//     if(window.localStorage.getItem("data") !== ""){
-//        return showList(localStorage.getItem("data"))
-//     }
-// }
+function getdata(){
+    if(window.localStorage.getItem("data") !== ""){
+       return showList(localStorage.getItem("data"))
+    }
+}
 
 function DeleteItem(itemToDelete) {
     itemToDelete.parentElement.remove()
